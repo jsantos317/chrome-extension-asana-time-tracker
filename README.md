@@ -1,5 +1,11 @@
-## Skeleton for Google Chrome extensions
+## Chrome Extension Time Tracker
+This is a Chrome extension that adds time tracking capabilities to Asana, an online project management tool used by many. It comes with a time tracker feature from Harvest that allows you to track the time  you've spent on a task. However, this feature is not free and requires a monthly subscription to Harvest.
 
+This project uses a minimal skeleton for Chrome extension @
+
+    https://github.com/salsita/chrome-extension-skeleton
+    
+### Project Features
 * includes awesome messaging module
 * webpack-based build system
 * full ES6 support with Babel 6

@@ -1,14 +1,14 @@
 {
-  "name": "Time Tracker",
-  "version": "0.1",
+  "name": "Time_Tracker",
+  "version": "0.1.0",
   "description": "Google Chrome extension adds a time tracker to Asana",
   "engines": {
     "node": "7.0.0",
     "npm": "3.10.8"
   },
   "scripts": {
-    "build": "mkdir -p ./build/prod && webpack --config ./webpack/webpack.config.prod.js",
-    "start": "mkdir -p ./build/dev && webpack --config ./webpack/webpack.config.dev.js",
+    "build": "(if not exist \"./build/prod\" mkdir \"./build/prod\") && webpack --config ./webpack/webpack.config.prod.js",
+    "start": "(if not exist \"./build/dev\" mkdir \"./build/dev\") && webpack --config ./webpack/webpack.config.dev.js",
     "lint": "eslint src/js/",
     "test": "mocha-webpack --watch --webpack-config ./webpack/webpack.config.test.js \"src/js/**/*.spec.js\"",
     "test:ci": "mocha-webpack --webpack-config ./webpack/webpack.config.test.js \"src/js/**/*.spec.js\""

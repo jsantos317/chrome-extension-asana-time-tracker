@@ -8,10 +8,17 @@
   "rules": {
     "comma-dangle": 0,
     "import/prefer-default-export": 0,
-
     "no-underscore-dangle": 0,
     "yoda": 0,
-    "prefer-rest-params": 0
+    "prefer-rest-params": 0,
+    "no-multi-spaces": "off",
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+
   },
   "settings": {
     "import/resolver": {
