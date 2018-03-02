@@ -38,7 +38,9 @@ let handlerLog = [];
 // function dumpLog() { console.log(JSON.stringify(handlerLog, null, 4)); }
 // helper to add items to log
 function addLog(context, idx, cmd, args, retVal) {
-  handlerLog.push({ context, idx, cmd, args, retVal });
+  handlerLog.push({
+    context, idx, cmd, args, retVal
+  });
 }
 // factory for generating context handlers
 function createHandlers(context, idx) {
@@ -208,7 +210,9 @@ describe('messaging module', () => {
       // (20 - 6) connect()s + (2 * 6) disconnect/connect updates for 'dt's
       if (handlerLog.length !== 26) { setImmediate(_f); return; }
       let log;
-      const stat = { ct: [], dt: [], popup: [], options: [] };
+      const stat = {
+        ct: [], dt: [], popup: [], options: []
+      };
       for (let i = 0; i < 14; i += 1) {
         log = handlerLog[i];
         assert(log.context === 'bg');

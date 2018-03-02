@@ -18,10 +18,10 @@ runner.go = (msg, info) => {
       log(`>>>>> invoking msg.bg('echo', '${info.arg}', callback)`);
       msg.bg('echo', info.arg, callback);
     } else if ('random' === info.cmd) {
-      log(">>>>> invoking msg.bg('random', callback)");
+      log('>>>>> invoking msg.bg(\'random\', callback)');
       msg.bg('random', callback);
     } else {
-      log(">>>>> invoking msg.bg('randomAsync', callback) ... 15 sec delay");
+      log('>>>>> invoking msg.bg(\'randomAsync\', callback) ... 15 sec delay');
       msg.bg('randomAsync', callback);
     }
   } else if ('echo' === info.cmd) { // msg.bcast + msg.cmd

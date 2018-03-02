@@ -6,6 +6,7 @@
   "extends": "airbnb/base",
   "parser": "babel-eslint",
   "rules": {
+    "linebreak-style": ["error", "windows"],
     "comma-dangle": 0,
     "import/prefer-default-export": 0,
     "no-underscore-dangle": 0,

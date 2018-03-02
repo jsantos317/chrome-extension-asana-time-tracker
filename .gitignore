@@ -8,5 +8,5 @@ build/prod
 build/updates.xml
 .tmp
 *.swp
-legacy/
+Time_Tracker_Legacy/
 .idea/
