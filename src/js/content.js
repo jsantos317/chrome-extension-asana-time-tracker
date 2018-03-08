@@ -17,7 +17,11 @@ import User from './custom_modules/user';
 console.log('CONTENT SCRIPT WORKS!'); // eslint-disable-line no-console
 
 const myUser = new User();
-myUser.authenticate();
+myUser.authenticate().then((data) => {
+  console.log('test'); // eslint-disable-line no-console
+  console.log(data); // eslint-disable-line no-console
+  console.log(myUser.email); // eslint-disable-line no-console
+});
 
 msg.init('ct', handlers.create('ct'));
 

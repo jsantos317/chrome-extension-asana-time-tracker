@@ -3,19 +3,16 @@ import Asana from './asana-min';
 
 export default class User {
   constructor() {
-    this.refresh_token = null;
-    this.me = null;
     console.log(asanaCredentials); // eslint-disable-line no-console
   }
-
   authenticate() {
-    const client = Asana.Client.create({
-      clientId: asanaCredentials.clientId,
-      clientSecret: asanaCredentials.clientSecret
+    const client = Asana.Client.create(asanaCredentials);
+    const promise = client.users.me();
+    promise.then((data) => {
+      Object.assign(this, data);
+      console.log(data); // eslint-disable-line no-console
+      console.log(this); // eslint-disable-line no-console
     });
-    client.users.me().then((me) => {
-      console.log(me); // eslint-disable-line no-console
-      this.me = me;
-    });
+    return promise;
   }
 }
