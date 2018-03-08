@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "mocha": true
+    "mocha": true,
+    "es6": true
   },
   "extends": "airbnb/base",
   "parser": "babel-eslint",
@@ -10,16 +11,17 @@
     "comma-dangle": 0,
     "import/prefer-default-export": 0,
     "no-underscore-dangle": 0,
+    "no-console": "off",
     "yoda": 0,
     "prefer-rest-params": 0,
+    "prefer-destructuring": 0,
     "no-multi-spaces": "off",
     "quotes": ["error", "single", { "allowTemplateLiterals": true }],
     "space-before-function-paren": ["error", {
       "anonymous": "never",
       "named": "never",
       "asyncArrow": "always"
-    }],
-
+    }]
   },
   "settings": {
     "import/resolver": {

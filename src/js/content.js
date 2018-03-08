@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import handlers from './modules/handlers';
 import msg from './modules/msg';
+import User from './custom_modules/user';
 
 // here we use SHARED message handlers, so all the contexts support the same
 // commands. but this is NOT typical messaging system usage, since you usually
@@ -14,6 +15,9 @@ import msg from './modules/msg';
 // `handlers` parameter for good when invoking msg.init()
 
 console.log('CONTENT SCRIPT WORKS!'); // eslint-disable-line no-console
+
+const myUser = new User();
+myUser.authenticate();
 
 msg.init('ct', handlers.create('ct'));
 

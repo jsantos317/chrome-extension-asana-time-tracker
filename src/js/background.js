@@ -30,8 +30,7 @@ function helloWorld() {
   setTimeout(() => {
     console.log('>>>>> broadcasting "hello world!" now'); // eslint-disable-line no-console
     message.bcast('echo', 'hello world!', () =>
-      console.log('<<<<< broadcasting done') // eslint-disable-line no-console
-    );
+      console.log('<<<<< broadcasting done')); // eslint-disable-line no-console
   }, 10 * 1000);
   setTimeout(helloWorld, 5 * 60 * 1000);
 }
