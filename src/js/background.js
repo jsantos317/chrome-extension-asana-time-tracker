@@ -1,6 +1,5 @@
 import handlers from './modules/handlers';
 import msg from './modules/msg';
-
 // here we use SHARED message handlers, so all the contexts support the same
 // commands. in background, we extend the handlers with two special
 // notification hooks. but this is NOT typical messaging system usage, since
@@ -21,19 +20,12 @@ function logEvent(ev, context, tabId) {
 }
 handlers.onConnect = logEvent.bind(null, 'onConnect');
 handlers.onDisconnect = logEvent.bind(null, 'onDisconnect');
-const message = msg.init('bg', handlers.create('bg'));
 
-// issue `echo` command in 10 seconds after invoked,
-// schedule next run in 5 minutes
-function helloWorld() {
-  console.log('===== will broadcast "hello world!" in 10 seconds'); // eslint-disable-line no-console
-  setTimeout(() => {
-    console.log('>>>>> broadcasting "hello world!" now'); // eslint-disable-line no-console
-    message.bcast('echo', 'hello world!', () =>
-      console.log('<<<<< broadcasting done')); // eslint-disable-line no-console
-  }, 10 * 1000);
-  setTimeout(helloWorld, 5 * 60 * 1000);
-}
+handlers.authUser = (callback) => {
+  console.log('authUser heard from Background');
+  callback('I_am_bg_var');
+};
 
-// start broadcasting loop
-helloWorld();
+
+const myMsg = msg.init('bg', handlers);
+myMsg.bcast(['popup'], 'popup');

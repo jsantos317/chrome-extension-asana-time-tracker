@@ -6,16 +6,15 @@
       "19": "images/clock-off-19.png",
       "38": "images/clock-off-38.png"
     },
-    "default_popup": "html/popup.html"
+    "default_popup": "popup/index.html"
   },
   "background": { "scripts": ["js/background.js"] },
   "content_scripts": [{
     "matches": [ "http://app.asana.com/*", "https://app.asana.com/*" ],
     "js": [ "js/content.js" ]
   }],
-  "options_page": "html/options.html",
-  "devtools_page": "html/devtools.html",
-  "permissions": [ "activeTab" ],
+  "options_page": "popup/index.html",
+  "permissions": [ "activeTab", "webRequest", "webRequestBlocking"],
   "web_accessible_resources": [ "js/*", "html/*", "css/*", "images/*" ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
   "name": "<%= package.name %>",

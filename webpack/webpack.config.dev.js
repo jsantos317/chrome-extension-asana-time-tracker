@@ -16,7 +16,7 @@ module.exports = _.merge({}, config, {
     new CopyWebpackPlugin([
       { from: './src' }
     ], {
-      ignore: ['js/**/*', 'manifest.json', 'js/custom_modules/asana-min.js'],
+      ignore: ['js/**/*', 'manifest.json'],
       copyUnmodified: false
     }),
     new VersionFilePlugin({

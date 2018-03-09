@@ -1,7 +1,7 @@
 import handlers from './modules/handlers';
 import msg from './modules/msg';
-import form from './modules/form';
-import runner from './modules/runner';
+// import form from './modules/form';
+// import runner from './modules/runner';
 
 // here we use SHARED message handlers, so all the contexts support the same
 // commands. but this is NOT typical messaging system usage, since you usually
@@ -15,5 +15,18 @@ import runner from './modules/runner';
 // `handlers` parameter for good when invoking msg.init()
 
 console.log('POPUP SCRIPT WORKS!'); // eslint-disable-line no-console
+handlers.popup = (myVar = 'default var') => { console.log(`test var: ${myVar}`); };
 
-form.init(runner.go.bind(runner, msg.init('popup', handlers.create('popup'))));
+console.log(handlers); // eslint-disable-line no-console
+const myMsg = msg.init('popup', handlers);
+
+function sendAuthMsgToBg() {
+  console.log('clicked'); // eslint-disable-line no-console
+  myMsg.bg('authUser', (callback) => {
+    console.log(callback); // eslint-disable-line no-console
+  });
+}
+sendAuthMsgToBg();
+// document.getElementById('asana_grant_permission').onclick = sendAuthMsgToBg;
+
+// form.init(runner.go.bind(runner, msg.init('popup', handlers.create('popup'))));
