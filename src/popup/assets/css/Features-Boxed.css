@@ -1,6 +1,6 @@
 .features-boxed {
   color:#313437;
-  background-color:#eef4f7;
+  background-color:#fff;
 }
 
 .features-boxed p {
@@ -33,13 +33,20 @@
 }
 
 .features-boxed .features {
-  padding:50px 0;
-}
 
+}
+.features-boxed .author {
+  overflow: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 .features-boxed .item {
-  text-align:center;
+  text-align:left;
+  cursor: pointer;
 }
-
+.features-boxed .item:hover {
+  background-color:#e9ecef;
+}
 .features-boxed .item .box {
   text-align:center;
   padding:30px;
@@ -57,14 +64,35 @@
 .features-boxed .item .name {
   font-weight:bold;
   font-size:18px;
-  margin-bottom:8px;
+  margin-bottom:0px;
   margin-top:0;
   color:inherit;
 }
 
 .features-boxed .item .description {
-  font-size:15px;
+  font-size:28px;
   margin-top:15px;
   margin-bottom:20px;
 }
 
+.features-boxed .rounded-circle {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin-right: 10px;
+  background: red;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+.features-boxed .rounded-circle-left {
+  float:left;
+}
+.features-boxed .rounded-circle-left .date {
+  font-size: 14px;
+  margin-left: 8px;
+  color: #7d8285;
+}
+.features-boxed .item .info {
+  float: left;
+}

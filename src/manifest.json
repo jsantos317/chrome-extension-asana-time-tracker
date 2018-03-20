@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
-  "icons": { "128": "images/icon.png" },
+  "icons": { "128": "images/leica_logo.png" },
   "browser_action": {
     "default_icon": {
-      "19": "images/clock-off-19.png",
-      "38": "images/clock-off-38.png"
+      "19": "images/leica_logo.png",
+      "38": "images/leica_logo.png"
     },
     "default_popup": "popup/index.html"
   },
@@ -17,7 +17,7 @@
   "permissions": [ "activeTab", "webRequest", "webRequestBlocking"],
   "web_accessible_resources": [ "js/*", "html/*", "css/*", "images/*" ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
-  "name": "<%= package.name %>",
-  "version": "<%= package.version %>",
-  "description": "<%= package.description %>"
+  "name": "Nexus Leads",
+  "version": "0.1.0",
+  "description": "My Nexus leads"
 }

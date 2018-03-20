@@ -1,31 +1,19 @@
 import handlers from './modules/handlers';
 import msg from './modules/msg';
-// here we use SHARED message handlers, so all the contexts support the same
-// commands. in background, we extend the handlers with two special
-// notification hooks. but this is NOT typical messaging system usage, since
-// you usually want each context to handle different commands. for this you
-// don't need handlers factory as used below. simply create individual
-// `handlers` object for each context and pass it to msg.init() call. in case
-// you don't need the context to support any commands, but want the context to
-// cooperate with the rest of the extension via messaging system (you want to
-// know when new instance of given context is created / destroyed, or you want
-// to be able to issue command requests from this context), you may simply
-// omit the `hadnlers` parameter for good when invoking msg.init()
+import Lead from './custom_modules/lead';
 
-console.log('BACKGROUND SCRIPT WORKS!'); // eslint-disable-line no-console
+const myLeads = new Lead();
 
-// adding special background notification handlers onConnect / onDisconnect
-function logEvent(ev, context, tabId) {
-  console.log(`${ev}: context = ${context}, tabId = ${tabId}`); // eslint-disable-line no-console
-}
-handlers.onConnect = logEvent.bind(null, 'onConnect');
-handlers.onDisconnect = logEvent.bind(null, 'onDisconnect');
-
-handlers.authUser = (callback) => {
-  console.log('authUser heard from Background');
-  callback('I_am_bg_var');
+handlers.getLeads = (callback) =>  {
+  myLeads.getLeads().then((theLeads) => {
+    callback(theLeads);
+  });
 };
+msg.init('bg', handlers); //eslint-disable-line
 
-
-const myMsg = msg.init('bg', handlers);
-myMsg.bcast(['popup'], 'popup');
+// get leads every minute then update views
+(function fetchAndUpdate() { //eslint-disable-line
+  myLeads.fetchLeads()
+    .then(leads => myLeads.updateBadgeText(leads))
+    .then(setTimeout(fetchAndUpdate, 60000));
+})();
