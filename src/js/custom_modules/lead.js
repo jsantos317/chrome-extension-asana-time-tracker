@@ -1,4 +1,4 @@
-import apiEndpoints from '../credentials';
+import { apiEndpoints, segmentColors } from '../settings';
 
 export default class Lead {
   constructor() {
@@ -20,13 +20,15 @@ export default class Lead {
     let html = '<div class="row people">';
     for (let i = 0; i < leads.length; i++) { // eslint-disable-line
       const lead = leads[i];
-      const {id, date_submitted, first_name, last_name, email, x_title, x_companyname} = lead; // eslint-disable-line
+      const {id, date_submitted, first_name, last_name, email, x_title, x_companyname, x_udf_primary_market_segment122__ss_label} = lead; // eslint-disable-line
+      const color = Object.prototype.hasOwnProperty.call(segmentColors, x_udf_primary_market_segment122__ss_label) ? segmentColors[x_udf_primary_market_segment122__ss_label] : '#c1c1c1';
+
       /* eslint-disable */
       html += `
       <div class="col-md-6 col-lg-4 item" data-id="${id}">
           <div class="author">
             <div class="rounded-circle-left">
-              <div class="rounded-circle">
+              <div class="rounded-circle" style="background:${color};">
                 ${this.nullToEmpty(first_name.charAt(0).toUpperCase())}${this.nullToEmpty(last_name.charAt(0).toUpperCase())}
               </div>
               <span class="date">${this.nullToEmpty(date_submitted.substring(5,10))}</span>

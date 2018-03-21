@@ -10,4 +10,5 @@ build/updates.xml
 *.swp
 Time_Tracker_Legacy/
 .idea/
+.vscode/
 src/js/credentials.js
