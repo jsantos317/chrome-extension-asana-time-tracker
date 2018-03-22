@@ -16,5 +16,5 @@ msg.init('bg', handlers); //eslint-disable-line
 (function fetchAndUpdate() { //eslint-disable-line
   myLeads.fetchLeads()
     .then(leads => Lead.updateBadgeText(leads))
-    .then(setTimeout(fetchAndUpdate, 60000));
+    .then(setTimeout(fetchAndUpdate, 3600000));
 })();

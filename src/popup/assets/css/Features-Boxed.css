@@ -96,3 +96,18 @@
 .features-boxed .item .info {
   float: left;
 }
+.slide-out {
+  transition: all .5s ease;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    position: absolute;
+}
+.slide-in {
+  transition: all .5s ease;
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    position: absolute;
+}
+#details {
+  width: 400px;
+}
